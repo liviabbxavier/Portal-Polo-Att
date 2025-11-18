@@ -1,0 +1,65 @@
+* {
+    margin: 0.3%;
+    padding: 0.5%;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #022047;
+}
+
+.calendario {
+    display: flex;
+    max-width: 70%;
+    max-height: 75%;
+    margin: 3% auto;
+    padding: 0.5%;
+    background-color: white;
+    flex-wrap: wrap;
+    border-radius: 5%;
+    text-align: center;
+}
+
+.dias_semana {
+    font-size: x-large;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    padding: 1%;
+    color: #022047;
+    justify-content: space-between;
+    border-bottom: 1px solid #022047;
+}
+
+.dias_semana span {
+    color: #022047;
+    font-weight: bold;
+    display: inline-block;
+    width: 13.5%;
+}
+
+.numero_dias {
+    font-size: x-large;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.numero_dias span {
+    font-weight: bold;
+    display: inline-block;
+    width: 14.2%;
+    margin: 3% 0%;
+    color: black;
+}
+
+.numero_dias span:hover {
+    cursor: pointer;
+    background-color: #022047;
+    color: white;
+    border-radius: 10%;
+}
+
+.mes_anterior {
+    opacity: 0.5;
+}

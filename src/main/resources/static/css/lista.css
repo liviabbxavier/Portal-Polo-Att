@@ -1,0 +1,272 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --cor-fundo-nav-bar: #011126 ;
+    --cor-fundo-nav-bar2: #022047 ;
+    --cor-letra-nav-bar: #FEFEFE ;
+    --cor-letra-logo-span: #BBC6D7 ;
+    --cor-titulo-card-claro: #2685BF ;
+    --cor-titulo-card-escuro:#011126 ;
+    --cor-paragrafo-card: #737373 ;
+}
+
+body{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color:white;
+}
+
+/* NAVEGAÇÃO VAN-BAR */
+.menu-bar{
+    background-color: var(--cor-fundo-nav-bar);
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2vw; /* Largura relatica ao viewport ou seja pela tela */
+    z-index: 10;
+    border-radius: 0 0 10px;
+    position: relative;
+    position: fixed;
+}
+
+.logo a{
+    color: var(--cor-letra-nav-bar);
+    margin: 1em;
+    text-decoration: none;
+    font-size: 30px;
+}
+
+.logo span{
+    color: var(--cor-letra-logo-span);
+}
+
+.menu-bar ul{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.menu-bar ul li{
+    padding: 1em 2vw;
+    position: relative;
+}
+
+.menu-bar ul li a{
+    color: var(--cor-letra-nav-bar);
+    text-decoration: none;
+    font-size: 1.2em;
+    display: inline-block;
+    transition: all 0.4s ease;
+}
+
+.menu-bar ul li a:hover{
+    color: var(--cor-letra-logo-span);
+    transform: scale(1.15) translateY(-2px);
+}
+
+.dropdown-menu{
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    background-color: var(--cor-fundo-nav-bar);
+/*     border-radius: 10%;
+ */}
+
+.dropdown-menu ul{
+    display: none;
+}
+
+.menu-bar ul li:hover .dropdown-menu ul{
+    display: block;
+    margin: 10px;
+}
+
+.dropdown-menu ul li{
+   width: 100%;
+   padding:1em ;
+}
+
+.fas{
+ /*    float: right; */
+    margin-left: 10px;
+    padding-top: 3px;
+}
+
+.menu-bar ul li a.ativa{
+    pointer-events: none;
+    cursor: default;
+    color: var(--cor-titulo-card-claro);
+}
+
+/* NAVEGAÇÃO VAN-BAR FINAL */
+
+.Cursos{
+    padding: 10%;
+}
+
+.titulo-vagas h1{
+    font-size: 3em;
+    text-align: center;
+    margin: 2%;
+    margin-top: 0.5em;
+    color: var(--cor-fundo-nav-bar2);
+}
+
+.titulo-vagas p{
+    font-size: 1.5em;
+    text-align: center;
+    margin: 2%;
+    color: var(--cor-fundo-nav-bar2);
+}
+
+/* card cursos */
+.cards-container {
+    border-top: 2px solid var(--cor-titulo-card-claro);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+    padding: 10%;
+}
+
+.titulo-cursos h2{
+    margin: 5%;
+    font-size: 3.2em;
+    margin-top:-2em;
+    text-align: center;
+}
+
+.card-vaga {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    transition: transform .3s ease;
+    word-wrap: break-word;       /* quebra palavras longas */
+    overflow-wrap: break-word;   /* versão moderna */
+    hyphens: auto;               /* coloca hífen automático ao quebrar */
+    max-width: 100%;             /* garante que não expanda */
+}
+
+.card-vaga:hover {
+    transform: translateY(-5px);
+}
+
+.card-vaga h2 {
+    margin-bottom: 10px;
+    color: #003566;
+}
+
+.buttons {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+.btn-candidatar {
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    color: var(--cor-letra-nav-bar);
+    background-color: var(--cor-fundo-nav-bar2);
+    color: #fff;
+    transition:all .4s ease;
+}
+
+.btn-candidatar:hover {
+      background-color: var(--cor-letra-logo-span) ;
+}
+
+.btn-excluir {
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    color: #fff;
+    transition:all .4s ease;
+    background: #9d0208;
+}
+
+.btn-excluir:hover {
+    background-color: var(--cor-letra-logo-span) ;
+}
+
+/* FOOTER */
+footer {
+    background-color: #022047;
+    width: 100%;
+    color: white;
+}
+
+.footer_content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 3% 3.5%;
+}
+
+.footer_content img {
+    width: 65%;
+    height: 90%;
+}
+
+.navegacao {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: medium;
+}
+
+.navegacao h1 {
+    padding: 2%;
+    font-size: 1.3em;
+    color: var(--cor-letra-nav-bar);
+    transition: 0.4s;
+}
+
+.navegacao h3 {
+    padding: 2% 2.5%;
+    font-size: 1em;
+    color: var(--cor-letra-logo-span);
+}
+
+.footer_redes_sociais {
+    display: flex;
+    flex-direction: column;
+    gap: 18%;
+    margin-top: 1.5%;
+    padding: 2% 2.5%;
+}
+
+.footer_redes_sociais .footer_link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    transition: all 0.4s;
+}
+
+.footer_link {
+    text-decoration: none;
+}
+
+.footer_redes_sociais .footer_link:hover {
+    opacity: 0.5;
+}
+
+.footer_link i {
+    color: white;
+    font-size: 24px;
+}
+
+.footer_copyright {
+    font-size: small;
+    color: var(--cor-letra-logo-span);
+    margin-left: 3.5em;
+}

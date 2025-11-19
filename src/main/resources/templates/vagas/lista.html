@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+     <!-- DATA AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- DATA AOS  final-->
+    <link rel="shortcut icon" href="img/icone-branco-removebg-preview.png">
+    <!-- icones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- final icones -->
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/lista.css">
+    <title>Lista de Vagas</title>
+</head>
+<body>
+
+    <!-- NAV -->
+<div class="menu-bar">
+    <h1 class="logo"><a th:href="@{/#inicio}"> Portal do <span>Polo</span></a></h1>
+    <ul>
+        <li><a th:href="@{/#inicio}">Início</a></li>
+        <li><a th:href="@{/#calendario-enventos}"> Eventos </a></li>
+        <li><a th:href="@{/vagas}" class="ativa" >Vagas</a></li>
+        <li><a th:href="@{/vagas/nova}"> Postar vaga </a></li>
+        <li><a>Colaboradores <i class="fas fa-caret-down"></i></a>
+            <div class="dropdown-menu">
+                <ul>
+                    <li><a href="#">Time 1</a></li>
+                    <li><a href="#">Time 2</a></li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div class="Cursos">
+    <div class="titulo-vagas" data-aos="fade-right">
+        <h1> Aprendizagem do Polo </h1>
+        <p>O Polo Marista de Formação Tecnológica, localizado no CESMAR em Porto Alegre, é um espaço dedicado à aprendizagem técnica e humana de jovens da comunidade. Por meio de cursos, projetos e oficinas práticas, como informática, robótica, hardware, redes e recondicionamento de computadores, o Polo promove a inclusão digital, o desenvolvimento profissional e o protagonismo juvenil. Seu modelo de aprendizagem integra tecnologia, valores humanos e experiências reais de trabalho, preparando os participantes para o mercado e para a vida em sociedade.</p>
+    </div>
+</div>
+    <div class="titulo-cursos">
+        <h2>Cursos disponíveis</h2>
+    </div>
+
+    <div class="cards-container">
+
+        <div th:each="vaga : ${listaVagas}" class="card-vaga" data-aos="fade-right">
+            <h2 th:text="${vaga.nomeVaga}">Nome da Vaga</h2>
+            <p><strong>Empresa:</strong> <span th:text="${vaga.empresaContratante}"></span></p>
+            <p><strong>Horário:</strong> <span th:text="${vaga.horarioFuncionamento}"></span></p>
+            <p><strong>Descrição:</strong> <span th:text="${vaga.descricao}"></span></p>
+            <p><strong>Requisitos:</strong> <span th:text="${vaga.requisitos}"></span></p>
+
+            <div class="buttons">
+                <a class="btn-candidatar" th:href="@{/candidatar/{id}(id=${vaga.id})}">Candidatar-se</a>
+                <a class="btn-excluir"  th:href="@{/vagas/excluir/{id}(id=${vaga.id})}"
+                   onclick="return confirm('Tem certeza que deseja excluir esta vaga?');"><i class="fa-solid fa-trash"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER &ndash-->
+    <footer>
+        <div class="footer_content">
+            <div class="footer_sobre_nos">
+                <img src="img/img-footer.png" alt="FOGAP-Logos-Entidades-Formadoras-CESMAR">
+            </div>
+
+            <div class="navegacao">
+                <div class="endereco">
+                    <h1>Endereço</h1>
+                    <h3>Estr. Antônio Severino, 1493 - Rubem Berta, Porto Alegre - RS, 91250-330</h3>
+                </div>
+
+                <div class="contato">
+                    <h1>Telefone para contato</h1>
+                    <h3>(51) 3086-2300</h3>
+                </div>
+
+                <div class="email">
+                    <h1>Email</h1>
+                    <h3>cesmar@maristas.org.br</h3>
+                </div>
+            </div>
+
+            <div class="footer_redes_sociais">
+                <a href="https://www.facebook.com/soucesmar/?locale=pt_BR" class="footer_link" id="facebook">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+
+                <a href="https://www.instagram.com/soucesmar/" class="footer_link" id="instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <a href="https://www.linkedin.com/company/centro-social-marista-porto-alegre/?originalSubdomain=br" class="footer_link" id="linkedin">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+
+                <a href="https://www.youtube.com/channel/UCCcMr8mSD-RSbAxQ9tKToLg" class="footer_link" id="youtube">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
+            </div>
+
+            <div class="footer_copyright">
+                &#169
+                2025 Todos os direitos reservados
+            </div>
+        </div>
+    </footer>
+    
+    <!--data aos -->
+    <script>
+        AOS.init();
+    </script>
+
+    </body>
+</html>

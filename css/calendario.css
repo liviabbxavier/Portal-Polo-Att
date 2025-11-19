@@ -1,65 +1,106 @@
+/* ===== Reset e base ===== */
 * {
-    margin: 0.3%;
-    padding: 0.5%;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    background-color: #022047;
+  font-family: 'Gill Sans', Calibri, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
-.calendario {
-    display: flex;
-    max-width: 70%;
-    max-height: 75%;
-    margin: 3% auto;
-    padding: 0.5%;
-    background-color: white;
-    flex-wrap: wrap;
-    border-radius: 5%;
-    text-align: center;
+/* ===== Container principal ===== */
+.wrapper {
+  width: 90%;
+  max-width: 600px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-.dias_semana {
-    font-size: x-large;
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap;
-    padding: 1%;
-    color: #022047;
-    justify-content: space-between;
-    border-bottom: 1px solid #022047;
+/* ===== Cabeçalho ===== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
 }
 
-.dias_semana span {
-    color: #022047;
-    font-weight: bold;
-    display: inline-block;
-    width: 13.5%;
+header .current-date {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #022047;
 }
 
-.numero_dias {
-    font-size: x-large;
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap;
+header .icons span {
+  font-size: 2rem;
+  color: #022047;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+  transition: background 0.3s;
 }
 
-.numero_dias span {
-    font-weight: bold;
-    display: inline-block;
-    width: 14.2%;
-    margin: 3% 0%;
-    color: black;
+header .icons span:hover {
+  background: #022047;
+  color: #fff;
 }
 
-.numero_dias span:hover {
-    cursor: pointer;
-    background-color: #022047;
-    color: white;
-    border-radius: 10%;
+/* ===== Estrutura do calendário ===== */
+.calendar {
+  width: 100%;
 }
 
-.mes_anterior {
-    opacity: 0.5;
+/* Cabeçalho dos dias da semana */
+.calendar .weeks {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-weight: bold;
+  color: #022047;
+  margin-bottom: 10px;
+}
+
+.calendar .weeks li {
+  padding: 8px 0;
+  list-style-type: none;
+}
+
+/* Dias do mês */
+.calendar .days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+.calendar .days li {
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  color: #022047;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+/* Estados */
+.days li.inactive {
+  color: #aaa;
+}
+
+.days li.active {
+  color: #fff;
+  background: #aaa;
+}
+
+.days li:hover {
+  background: #022047;
+  color: white;
 }

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Calendário Dinâmico</title>
+  <link rel="stylesheet" href="/css/calendario.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+  <script src="/js/calendario.js" defer></script>
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+      <p class="current-date"></p>
+      <div class="icons">
+        <span id="prev" class="material-symbols-rounded">chevron_left</span>
+        <span id="next" class="material-symbols-rounded">chevron_right</span>
+      </div>
+    </header>
+
+    <div class="calendar">
+      <ul class="weeks">
+        <li>Domingo</li>
+        <li>Segunda</li>
+        <li>Terça</li>
+        <li>Quarta</li>
+        <li>Quinta</li>
+        <li>Sexta</li>
+        <li>Sábado</li>
+      </ul>
+      <ul class="days" id="days"></ul>
+
+      <script>
+        function gerarCalendario(mes, ano) {
+          const diasNoMes = new Date(ano, mes + 1, 0).getDate(); // total de dias
+          const primeiroDiaSemana = new Date(ano, mes, 1).getDay(); // 0=Dom, 6=Sáb
+          const daysContainer = document.getElementById("days");
+          daysContainer.innerHTML = "";
+
+          // Adiciona células vazias antes do primeiro dia
+          for (let i = 0; i < primeiroDiaSemana; i++) {
+            const vazio = document.createElement("li");
+            vazio.classList.add("empty"); // útil para estilizar depois
+            daysContainer.appendChild(vazio);
+          }
+
+          // Adiciona os dias do mês
+          for (let dia = 1; dia <= diasNoMes; dia++) {
+            const li = document.createElement("li");
+            li.textContent = dia;
+            daysContainer.appendChild(li);
+          }
+        }
+
+        // Exemplo: Novembro 2025 (mes = 10 porque janeiro=0)
+        gerarCalendario(10, 2025);
+      </script>
+    </div>
+  </div>
+</body>
+
+</html>
